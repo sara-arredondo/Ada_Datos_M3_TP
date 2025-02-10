@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <!-- componente de menu-->  
+    <header>
+
+        <!-- logo--> 
+        <div>
+            <img src="" alt="">
+        </div>
+
+        <!-- secciones menu--> 
+        <div>
+
+            <!-- icono hamburguesa para mobile--> 
+            <div>
+                <img src="" alt="">
+            </div>
+
+            <!-- paginas del menu-->
+            <ul>
+                <li>Balance</li>
+                <li>Categorias</li>
+                <li>Reportes</li>
+            </ul>
+
+        </div>
+
+    </header>
+
+    <!-- secciones y componentes-->  
+    <main>
+
+        <!-- componente de balance -->       
+        <section id="balance-component">
+
+            <!-- card balance -->   
+            <section id="balance-card">
+
+                 <!-- título --> 
+                <div>
+                    <h1>Balance</h1>
+                </div>
+
+                <!-- ganancia -->
+                <div>
+                    <h3>Ganancias</h3>
+                    <span>+$xxxx</span>
+                </div>
+
+                <!-- gasto -->
+                <div>
+                    <h3>Gastos</h3>
+                    <span>-$xxxx</span>
+                </div>
+
+                <!-- total -->
+                <div>
+                    <h3>TOTAL</h3>
+                    <span>-$xxxx</span>
+                </div>
+
+            </section>
+
+            <!-- card de filtros --> 
+            <section id="filtros-card">
+
+                <!-- título -->
+                <div>
+                    <h2>Filtros</h2>
+                    <span>
+                        <a href="">Ocultar filtros</a>
+                    </span>
+                    
+                </div>
+
+                <!-- formulario para agregar filtros --> 
+                <form action="">
+
+                    <!-- input desplegable por tipo -->
+                    <div>
+                        <label for="">Tipo</label>
+                        <select name="" id="">
+                            <option value="todos">Todos</option>
+                            <option value="gasto">Gasto</option>
+                            <option value="ganancia">Ganancia</option>
+                        </select>
+                    </div>
+
+                    <!-- input desplegable por categoria -->
+                    <div>
+                        <label for="">Categoria</label>
+                        <select name="" id="">
+                            <option value="todos">Todos</option>
+                            <option value="comida">Comida</option>
+                            <option value="servicios">Servicios</option>
+                            <option value="salidas">Salidas</option>
+                            <option value="educacion">Educacion</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="trabajo">Trabajo</option>
+                        </select>
+                    </div>
+
+                    <!-- input tipo date -->
+                    <div>
+                        <label for="">Desde</label>
+                        <input type="date">
+                    </div>
+
+                    <!--input para ordenar -->
+                    <div>
+                        <label for="">Ordenar por</label>
+                        <select name="" id="">
+                            <option value="mas-reciente">Más reciente</option>
+                            <option value="menos-reciente">Menos reciente</option>
+                            <option value="mayor-monto">Mayor Monto</option>
+                            <option value="menor-mont">Menor Monto</option>
+                            <option value="descendiente">A/Z</option>
+                            <option value="ascendente">Z/A</option>
+                        </select>
+                    </div>
+                    
+                </form>
+
+            </section>
+
+            <!-- card donde se muestran las operaciones --> 
+            <section id="operaciones-card">
+
+                <!-- titulo y boton agregar operaciones -->
+                <div>
+                    <h1>Operaciones</h1>
+                    <button>+ Nueva operación</button>
+                </div>
+
+                <!-- planel cuando no hay  operaciones -->
+                <div>
+                    <img src="" alt="">
+                    <h3>Sin operaciones</h3>
+                    <p>Cambia los filtros o agrega operaciones</p>
+                </div>
+
+                <!-- panel cuando hay operaciones operaciones -->
+                <div>
+
+                    <!-- titúlos tabla -->
+                    <div>
+                        <span>Descripción</span>
+                        <span>Categoria</span>
+                        <span>Fecha</span>
+                        <span>Monto</span>
+                        <span>Acciones</span>
+                    </div>
+
+                    <!-- fila de operación agregada -->
+                    <div>
+                        <span>Descripción</span>
+                        <span>Categoria</span>
+                        <span>Fecha</span>
+                        <span>Monto</span>
+                        <div>
+                            <span>
+                                <a href="">agregar</a>
+                            </span>
+                            <span>
+                                <a href="">eliminar</a>
+                            </span>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- componente para agregar operación, va conectado al boton +operacion del panel de Balance-->   
+        <section id="agregar-operacion-componente">
+
+                <!-- titulo --> 
+                <div>
+                    <h1>Nueva Operación</h1>
+                </div>
+                
+                <!-- formulario para ingreso de operaciones -->
+                <form action="">
+
+                    <!-- input para describir el tipo de operacion -->
+                    <div>
+                        <label for="">Descripción</label>
+                        <input type="text">
+                    </div>
+
+                    <!-- input para ingresar el monto -->
+                    <div>
+                        <label for="">Monto</label>
+                        <input type="number">
+                    </div>
+
+                    <!-- input para seleccionar el tipo de gasto -->
+                    <div>
+                        <label for="">Monto</label>
+                        <select name="" id="">
+                            <option value="Gasto">Gasto</option>
+                            <option value="Ganancia">Ganancia</option>
+                        </select>
+                    </div>
+
+                    <!-- input para seleccionar la categoria del gasto -->
+                    <div>
+                        <label for="">Monto</label>
+                        <select name="" id="">
+                            <option value="comida">Comida</option>
+                            <option value="servicios">Servicios</option>
+                            <option value="educacion">Educación</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="trabajo">Trabajo</option>
+                            <option value="zapatos">Zapatos</option>
+                        </select>
+                    </div>
+
+                    <!-- input para ingresar la fecha-->
+                    <div>
+                        <label for="">Fecha</label>
+                        <input type="date">
+                    </div>
+
+                    <!-- input botones-->
+                    <div>
+                        <input type="submit" value="enviar">
+                        <input type="submit" value="cancelar">
+                    </div>
+
+                </form>
+
+        </section>
+
+        <!-- componente para agregar categorias -->  
+        <section id="categorias-component">
+
+            <!-- título card --> 
+            <div>
+                <h1>Categorias</h1>
+            </div>
+
+            <!-- formulario para agregar categoria -->  
+            <form action="">
+
+                <!-- input tipo texto para agregar el nombre de la categoria -->
+                <div>
+                    <label for="">Nombre</label>
+                    <input type="text">
+
+                <!-- input tipo submit -->   
+                </div>
+                    <input type="button" value="Agregar">    
+                </div>    
+
+            </form>
+    
+
+
+                <div>
+                    <div>
+                        <div>
+                            <span>nueva</span>
+                        </div>
+                        <div>
+                            <a href="">editar</a>
+                        </div>
+                        <div>
+                            <a href="">eliminar</a>
+                        </div> 
+                    </div>
+                </div>
+        </section>
+
+        <!-- componente de reportes  -->  
+        <section id="reportes-component">
+
+            <!-- título del componente -->
+            <div>
+                <h1>Reportes</h1>
+            </div>
+
+            <!-- componente de reportes cuando NO hay operaciones -->
+            <section>
+                <img src="" alt="">
+                <h2>OPERACIONES INSUFICIENTES</h2>
+                <P>Prueba agregando nueva operaciones</P>
+            </section>
+
+            <!-- componente de reportes cuando hay operaciones -->
+            <section>
+           
+                <!-- resumen --> 
+                <article>
+
+                <!-- título resumen --> 
+                <div>
+                    <h2>Resumen</h2>
+                </div>
+
+                <!-- categoria con mayor ganancia -->
+                <div>
+                    <div>
+                        <p>categoria con mayor ganancia</p>
+                    </div>
+                    <div>
+                        <span>trabajo</span>
+                    </div>
+                    <div>
+                        <span>+$XXXX</span>
+                    </div>
+                </div>
+                
+                <!-- categoria con mayor gasto -->
+                <div>
+                    <div>
+                        <p>categoria con mayor ganancia</p>
+                    </div>
+                    <div>
+                        <span>trabajo</span>
+                    </div>
+                    <div>
+                        <span>+$XXXX</span>
+                    </div>
+                </div>
+
+                <!-- categoria con mayor balance -->
+                <div>
+                    <div>
+                        <p>categoria con mayor balance </p>
+                    </div>
+                    <div>
+                        <span>trabajo</span>
+                    </div>
+                    <div>
+                        <span>+$XXXX</span>
+                    </div>
+                </div>
+
+                <!-- mes con mayor ganancia -->
+                <div>
+                    <div>
+                        <p>mes con mayor ganancia</p>
+                    </div>
+                    <div>
+                        <span>DD/MM/AAAA</span>
+                    </div>
+                    <div>
+                        <span>+$XXXX</span>
+                    </div>
+                </div>
+               
+                <!-- mes con mayor gasto -->
+                <div>
+                    <div>
+                        <p>mes con mayor ganancia</p>
+                    </div>
+                    <div>
+                        <span>DD/MM/AAAA</span>
+                    </div>
+                    <div>
+                        <span>+$XXXX</span>
+                    </div>
+                </div>
+                
+                </article>
+                
+                <!-- totales por categoria --> 
+                <article>
+
+                <!-- título Por categorias --> 
+                <div>
+                    <h2>categoria con mayor gasto</h2>
+                </div>
+
+                <!-- títulos columnas -->
+                <div>
+                    <div>
+                        <span>Categoria</span>
+                    </div>
+                    <div>
+                        <span>Ganancias</span>
+                    </div>
+                    <div>
+                        <span>Gastos</span>
+                    </div>
+                    <div>
+                        <span>Balance</span>
+                    </div>
+                </div>
+
+                <!-- fila para reemplazar -->
+                <div>
+                    <div>
+                        <span>Categoria</span>
+                    </div>
+                    <div>
+                        <span>Ganancias</span>
+                    </div>
+                    <div>
+                        <span>Gastos</span>
+                    </div>
+                    <div>
+                        <span>Balance</span>
+                    </div>
+                </div>
+
+                </article>    
+            
+                <!-- totales por mes --> 
+                <article>
+
+                <!-- título Por mes --> 
+                <div>
+                    <h2>Totales por mes</h2>
+                </div>
+
+                 <!-- títulos columnas -->
+                 <div>
+                    <div>
+                        <span>Mes</span>
+                    </div>
+                    <div>
+                        <span>Ganancias</span>
+                    </div>
+                    <div>
+                        <span>Gastos</span>
+                    </div>
+                    <div>
+                        <span>Balance</span>
+                    </div>
+                </div>
+
+                <!-- fila para reemplazar -->
+                <div>
+                    <div>
+                        <span>1/2025</span>
+                    </div>
+                    <div>
+                        <span>Ganancias</span>
+                    </div>
+                    <div>
+                        <span>Gastos</span>
+                    </div>
+                    <div>
+                        <span>Balance</span>
+                    </div>
+                </div>
+
+                </article>
+
+            </section>
+           
+            
+        </section>
+
+    </main>
+    
+</body>
+</html>
