@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-yellow-20">
 
     <!-- componente de menu-->  
-    <header>
+    <header class="bg-blue-900 h-20 flex p-4">
 
         <!-- logo--> 
-        <div>
-            <img src="" alt="">
+        <div class="w-1/3">
+            <img src="./assets/svg/logo.svg" alt="">
         </div>
 
         <!-- secciones menu--> 
-        <div>
+        <div class="w-2/3 flex justify-end ">
 
             <!-- icono hamburguesa para mobile--> 
-            <div>
-                <img src="" alt="">
+            <div class="w-10">
+                <img src="./assets/svg/menu.svg" alt="">
             </div>
 
             <!-- paginas del menu-->
-            <ul>
+            <ul class="hidden">
                 <li>Balance</li>
                 <li>Categorias</li>
                 <li>Reportes</li>
@@ -36,103 +39,106 @@
     </header>
 
     <!-- secciones y componentes-->  
-    <main>
+    <main class="flex flex-col p-8">
 
         <!-- componente de balance -->       
-        <section id="balance-component">
+        <section id="balance-component" class="">
 
-            <!-- card balance -->   
-            <section id="balance-card">
+            <!-- contenedor de card balance y filtros --> 
+            <div>
+                <!-- card balance --> 
+                <section id="balance-card" class="h-70 bg-amber-50 shadow-lg rounded-md p-4 my-8">
 
-                 <!-- título --> 
-                <div>
-                    <h1>Balance</h1>
-                </div>
-
-                <!-- ganancia -->
-                <div>
-                    <h3>Ganancias</h3>
-                    <span>+$xxxx</span>
-                </div>
-
-                <!-- gasto -->
-                <div>
-                    <h3>Gastos</h3>
-                    <span>-$xxxx</span>
-                </div>
-
-                <!-- total -->
-                <div>
-                    <h3>TOTAL</h3>
-                    <span>-$xxxx</span>
-                </div>
-
-            </section>
-
-            <!-- card de filtros --> 
-            <section id="filtros-card">
-
-                <!-- título -->
-                <div>
-                    <h2>Filtros</h2>
-                    <span>
-                        <a href="">Ocultar filtros</a>
-                    </span>
-                    
-                </div>
-
-                <!-- formulario para agregar filtros --> 
-                <form action="">
-
-                    <!-- input desplegable por tipo -->
-                    <div>
-                        <label for="">Tipo</label>
-                        <select name="" id="">
-                            <option value="todos">Todos</option>
-                            <option value="gasto">Gasto</option>
-                            <option value="ganancia">Ganancia</option>
-                        </select>
-                    </div>
-
-                    <!-- input desplegable por categoria -->
-                    <div>
-                        <label for="">Categoria</label>
-                        <select name="" id="">
-                            <option value="todos">Todos</option>
-                            <option value="comida">Comida</option>
-                            <option value="servicios">Servicios</option>
-                            <option value="salidas">Salidas</option>
-                            <option value="educacion">Educacion</option>
-                            <option value="transporte">Transporte</option>
-                            <option value="trabajo">Trabajo</option>
-                        </select>
-                    </div>
-
-                    <!-- input tipo date -->
-                    <div>
-                        <label for="">Desde</label>
-                        <input type="date">
-                    </div>
-
-                    <!--input para ordenar -->
-                    <div>
-                        <label for="">Ordenar por</label>
-                        <select name="" id="">
-                            <option value="mas-reciente">Más reciente</option>
-                            <option value="menos-reciente">Menos reciente</option>
-                            <option value="mayor-monto">Mayor Monto</option>
-                            <option value="menor-mont">Menor Monto</option>
-                            <option value="descendiente">A/Z</option>
-                            <option value="ascendente">Z/A</option>
-                        </select>
-                    </div>
-                    
-                </form>
-
-            </section>
-
+                    <!-- título --> 
+                   <div class="mb-8">
+                       <h1 class="text-3xl font-bold">Balance</h1>
+                   </div>
+   
+                   <!-- ganancia -->
+                   <div class="flex justify-between h-1/3 pb-4">
+                       <h3 class="text-lg">Ganancias</h3>
+                       <span class="text-lg">+$xxxx</span>
+                   </div>
+   
+                   <!-- gasto -->
+                   <div  class="flex justify-between h-1/3 pb-4">
+                       <h3 class="text-lg">Gastos</h3>
+                       <span class="text-lg">-$xxxx</span>
+                   </div>
+   
+                   <!-- total -->
+                   <div  class="flex justify-between h-1/3">
+                       <h2 class="text-xl">TOTAL</h3>
+                       <span class="text-lg">-$xxxx</span>
+                   </div>
+   
+                </section>
+   
+                 <!-- card de filtros --> 
+                <section id="filtros-card" class="h-80 bg-amber-50 shadow-lg rounded-md p-4 my-8">
+   
+                   <!-- título -->
+                   <div>
+                       <h2>Filtros</h2>
+                       <span>
+                           <a href="">Ocultar filtros</a>
+                       </span>
+                       
+                   </div>
+   
+                   <!-- formulario para agregar filtros --> 
+                   <form action="">
+   
+                       <!-- input desplegable por tipo -->
+                       <div>
+                           <label for="">Tipo</label>
+                           <select name="" id="">
+                               <option value="todos">Todos</option>
+                               <option value="gasto">Gasto</option>
+                               <option value="ganancia">Ganancia</option>
+                           </select>
+                       </div>
+   
+                       <!-- input desplegable por categoria -->
+                       <div>
+                           <label for="">Categoria</label>
+                           <select name="" id="">
+                               <option value="todos">Todos</option>
+                               <option value="comida">Comida</option>
+                               <option value="servicios">Servicios</option>
+                               <option value="salidas">Salidas</option>
+                               <option value="educacion">Educacion</option>
+                               <option value="transporte">Transporte</option>
+                               <option value="trabajo">Trabajo</option>
+                           </select>
+                       </div>
+   
+                       <!-- input tipo date -->
+                       <div>
+                           <label for="">Desde</label>
+                           <input type="date">
+                       </div>
+   
+                       <!--input para ordenar -->
+                       <div>
+                           <label for="">Ordenar por</label>
+                           <select name="" id="">
+                               <option value="mas-reciente">Más reciente</option>
+                               <option value="menos-reciente">Menos reciente</option>
+                               <option value="mayor-monto">Mayor Monto</option>
+                               <option value="menor-mont">Menor Monto</option>
+                               <option value="descendiente">A/Z</option>
+                               <option value="ascendente">Z/A</option>
+                           </select>
+                       </div>
+                       
+                   </form>
+   
+                </section>
+            </div>
+              
             <!-- card donde se muestran las operaciones --> 
-            <section id="operaciones-card">
+            <section id="operaciones-card" class="h-80 bg-amber-50 shadow-lg rounded-md p-4 my-8">
 
                 <!-- titulo y boton agregar operaciones -->
                 <div>
@@ -245,7 +251,7 @@
         </section>
 
         <!-- componente para agregar categorias -->  
-        <section id="categorias-component">
+        <section id="categorias-componente">
 
             <!-- título card --> 
             <div>
@@ -285,7 +291,7 @@
         </section>
 
         <!-- componente de reportes  -->  
-        <section id="reportes-component">
+        <section id="reportes-componente">
 
             <!-- título del componente -->
             <div>
