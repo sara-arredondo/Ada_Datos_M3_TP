@@ -158,7 +158,7 @@
                     <button type='button' class='py-2.5 pl-6 pr-3.5 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 flex items-center hover:bg-rojo'>Nueva Operación ></button>
                 </div>
 
-                <!-- planel cuando no hay  operaciones -->
+                <!-- planel cuando no hay operaciones -->
                 <div class="h-96 ">
                     <div class="h-72 flex justify-center mb-8">
                         <img class="h-full" src="./assets/svg/no-hay-operaciones.svg" alt="">
@@ -193,13 +193,9 @@
                             <span class="hidden">Fecha</span>
                             <span class="text-lg">Monto</span>
 
-                            <div>
-                                <span>
-                                    <a href="">agregar</a>
-                                </span>
-                                <span>
-                                    <a href="">eliminar</a>
-                                </span> 
+                            <div class="gap-4">
+                                <a href="">agregar</a>
+                                <a href="">eliminar</a>
                             </div>
                         </div>
 
@@ -212,7 +208,7 @@
         </section>
 
         <!-- componente para agregar operación, va conectado al boton +operacion del panel de Balance-->   
-        <section id="agregar-operacion-componente" class="h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
+        <section id="agregar-operacion-componente" class="h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
 
                 <!-- titulo --> 
                 <div class="mb-8">
@@ -273,222 +269,172 @@
         </section>
 
         <!-- componente para agregar categorias -->  
-        <section id="categorias-componente">
+        <section id="categorias-componente" class="h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
 
             <!-- título card --> 
-            <div>
-                <h1>Categorias</h1>
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold">Categorias</h1>
             </div>
 
             <!-- formulario para agregar categoria -->  
-            <form action="">
-
-                <!-- input tipo texto para agregar el nombre de la categoria -->
-                <div>
-                    <label for="">Nombre</label>
-                    <input type="text">
-
-                <!-- input tipo submit -->   
+            <form action="" class="w-full pb-8">
+                <label class="mb-2 block" for="nombre">Nombre</label>
+                <div class="flex items-center space-x-4">
+                    <!-- Input de texto -->
+                    <input type="text" class="h-10 flex-1 rounded-lg border border-rojo px-4 w-2/3">
+                    <!-- Botón de submit -->
+                    <input type="submit" value="Agregar" class="h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">
                 </div>
-                    <input type="button" value="Agregar">    
-                </div>    
-
             </form>
-    
 
-
-                <div>
-                    <div>
-                        <div>
-                            <span>nueva</span>
-                        </div>
-                        <div>
-                            <a href="">editar</a>
-                        </div>
-                        <div>
-                            <a href="">eliminar</a>
-                        </div> 
-                    </div>
+            <div class="flex justify-between">
+                    
+                <span class="border border-azul p-2 rounded-full text-xs">etiqueta</span>
+                <div class="flex gap-4">
+                    <a href="">editar</a>
+                    <a href="">eliminar</a>
                 </div>
+
+            </div>
+
         </section>
 
         <!-- componente de reportes  -->  
-        <section id="reportes-componente">
+        <section id="reportes-componente" id="operaciones-card" class="h-100 shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
 
             <!-- título del componente -->
-            <div>
-                <h1>Reportes</h1>
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold">Reportes</h1>
             </div>
 
             <!-- componente de reportes cuando NO hay operaciones -->
-            <section>
-                <img src="" alt="">
-                <h2>OPERACIONES INSUFICIENTES</h2>
-                <P>Prueba agregando nueva operaciones</P>
+            <section class="h-96">
+
+                <div class="h-72 flex justify-center mb-8">
+                    <img class="h-full" src="./assets/svg/operaciones-insuficientes.svg" alt="">
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-center">Operaciones insuficientes, no te puedo mostrar nada </h3>
+                    <P class="text-center">Prueba agregando una operación</P>
+                </div>
+                
+                
             </section>
 
             <!-- componente de reportes cuando hay operaciones -->
-            <section>
+            <section class="h-fit hidden">
            
                 <!-- resumen --> 
-                <article>
+                <article class="mb-24">
 
-                <!-- título resumen --> 
-                <div>
-                    <h2>Resumen</h2>
-                </div>
+                    <!-- título resumen --> 
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold">Resumen</h2>
+                    </div>
 
-                <!-- categoria con mayor ganancia -->
-                <div>
-                    <div>
-                        <p>categoria con mayor ganancia</p>
+                    <!-- categoria con mayor ganancia -->
+                    <div class="flex flex-rom justify-between mb-4">
+                        <p class="w-1/2 font-bold">Categoria con mayor ganancia</p>
+                        <div class="w-1/4 flex justify-end">
+                            <span class="border border-azul p-2 rounded-full text-xs">trabajo</span>
+                        </div>
+                        <span class="w-1/4 flex justify-end">+$XXXX</span>
                     </div>
-                    <div>
-                        <span>trabajo</span>
-                    </div>
-                    <div>
-                        <span>+$XXXX</span>
-                    </div>
-                </div>
                 
-                <!-- categoria con mayor gasto -->
-                <div>
-                    <div>
-                        <p>categoria con mayor ganancia</p>
+                    <!-- categoria con mayor gasto -->
+                    <div class="flex flex-rom justify-between mb-4">
+                        <p class="w-1/2 font-bold">Categoria con mayor ganancia</p>
+                        <div class="w-1/4 flex justify-end">
+                            <span class="border border-azul p-2 rounded-full text-xs">trabajo</span>
+                        </div>         
+                        <span class="w-1/4 flex justify-end">+$XXXX</span>
                     </div>
-                    <div>
-                        <span>trabajo</span>
-                    </div>
-                    <div>
-                        <span>+$XXXX</span>
-                    </div>
-                </div>
 
-                <!-- categoria con mayor balance -->
-                <div>
-                    <div>
-                        <p>categoria con mayor balance </p>
+                    <!-- categoria con mayor balance -->
+                    <div class="flex flex-rom justify-between mb-4">
+                        <p class="w-1/2 font-bold">Categoria con mayor balance </p>
+                        <div class="w-1/4 flex justify-end">
+                            <span class="border border-azul p-2 rounded-full text-xs">trabajo</span>
+                        </div>  
+                        <span class="w-1/4 flex justify-end">+$XXXX</span>
                     </div>
-                    <div>
-                        <span>trabajo</span>
+                   
+                    <!-- mes con mayor ganancia -->
+                    <div class="flex flex-rom justify-between mb-4">
+                        <p class="w-1/2 font-bold">Mes con mayor ganancia</p>
+                        <div class="w-1/4 flex justify-end">
+                            <span>DD/MM/AAAA</span>
+                        </div>
+                        <span class="w-1/4 flex justify-end">+$XXXX</span>
                     </div>
-                    <div>
-                        <span>+$XXXX</span>
-                    </div>
-                </div>
-
-                <!-- mes con mayor ganancia -->
-                <div>
-                    <div>
-                        <p>mes con mayor ganancia</p>
-                    </div>
-                    <div>
-                        <span>DD/MM/AAAA</span>
-                    </div>
-                    <div>
-                        <span>+$XXXX</span>
-                    </div>
-                </div>
                
-                <!-- mes con mayor gasto -->
-                <div>
-                    <div>
-                        <p>mes con mayor ganancia</p>
+                    <!-- mes con mayor gasto -->
+                    <div class="flex flex-rom justify-between mb-4">
+                        <p class="w-1/2 font-bold">Mes con mayor gasto</p>
+                        <div class="w-1/4 flex justify-end">
+                            <span>DD/MM/AAAA</span>
+                        </div>
+                        <span class="w-1/4 flex justify-end">+$XXXX</span>
                     </div>
-                    <div>
-                        <span>DD/MM/AAAA</span>
-                    </div>
-                    <div>
-                        <span>+$XXXX</span>
-                    </div>
-                </div>
                 
                 </article>
                 
                 <!-- totales por categoria --> 
-                <article>
+                <article class="mb-16">
 
-                <!-- título Por categorias --> 
-                <div>
-                    <h2>categoria con mayor gasto</h2>
-                </div>
+                    <!-- título Por categorias --> 
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold">Totales por categoria</h2>
+                    </div>
 
-                <!-- títulos columnas -->
-                <div>
-                    <div>
-                        <span>Categoria</span>
+                    <!-- títulos columnas -->
+                    
+                    <div class="flex flex-row mb-4">
+                        <span class="w-1/4 flex justify-start font-bold">Categoria</span>
+                        <span class="w-1/4 flex justify-end font-bold">Ganancias</span>
+                        <span class="w-1/4 flex justify-end font-bold">Gastos</span>
+                        <span class="w-1/4 flex justify-end font-bold">Balance</span>
                     </div>
-                    <div>
-                        <span>Ganancias</span>
+                   
+                    <!-- fila para reemplazar -->
+                    <div class="flex flex-row mb-6">
+                        <div class="w-1/4 flex justify-start">
+                            <span class="border border-azul p-2 rounded-full text-xs">trabajo</span>
+                        </div>
+                        <span class="w-1/4 flex justify-end">Ganancias</span>
+                        <span class="w-1/4 flex justify-end">Gastos</span>
+                        <span class="w-1/4 flex justify-end">Balance</span>
                     </div>
-                    <div>
-                        <span>Gastos</span>
-                    </div>
-                    <div>
-                        <span>Balance</span>
-                    </div>
-                </div>
-
-                <!-- fila para reemplazar -->
-                <div>
-                    <div>
-                        <span>Categoria</span>
-                    </div>
-                    <div>
-                        <span>Ganancias</span>
-                    </div>
-                    <div>
-                        <span>Gastos</span>
-                    </div>
-                    <div>
-                        <span>Balance</span>
-                    </div>
-                </div>
 
                 </article>    
             
                 <!-- totales por mes --> 
-                <article>
+                <article class="mb-16">
 
-                <!-- título Por mes --> 
-                <div>
-                    <h2>Totales por mes</h2>
-                </div>
+                    <!-- título Por mes --> 
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold">Totales por mes</h2>
+                    </div>
 
-                 <!-- títulos columnas -->
-                 <div>
-                    <div>
-                        <span>Mes</span>
+                    <!-- títulos columnas -->
+                    <div class="flex flex-row mb-4">
+                        <span class="w-1/4 flex justify-start font-bold">Mes</span>
+                        <span class="w-1/4 flex justify-end font-bold">Ganancias</span>
+                        <span class="w-1/4 flex justify-end font-bold">Gastos</span>
+                        <span class="w-1/4 flex justify-end font-bold">Balance</span>
                     </div>
-                    <div>
-                        <span>Ganancias</span>
+                   
+                    <!-- fila para reemplazar -->
+                    <div class="flex flex-row mb-6">
+                        <span class="w-1/4 flex justify-start">MM/AAAA</span>
+                        <span class="w-1/4 flex justify-end">Ganancias</span>
+                        <span class="w-1/4 flex justify-end">Gastos</span>
+                        <span class="w-1/4 flex justify-end">Balance</span>
                     </div>
-                    <div>
-                        <span>Gastos</span>
-                    </div>
-                    <div>
-                        <span>Balance</span>
-                    </div>
-                </div>
-
-                <!-- fila para reemplazar -->
-                <div>
-                    <div>
-                        <span>1/2025</span>
-                    </div>
-                    <div>
-                        <span>Ganancias</span>
-                    </div>
-                    <div>
-                        <span>Gastos</span>
-                    </div>
-                    <div>
-                        <span>Balance</span>
-                    </div>
-                </div>
 
                 </article>
-
+                
             </section>
            
             
