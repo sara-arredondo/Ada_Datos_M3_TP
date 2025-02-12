@@ -8,34 +8,46 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                blanco: "#F3F1EC",
+                azul: "#121337",
+                amarilloClaro: "#C3C5E1",
+                rojo: "#C4484F",
+              },
+            },
+          },
+        };
+    </script>
 </head>
-<body class="bg-yellow-20">
+<body class="bg-blanco">
 
     <!-- componente de menu-->  
-    <header class="bg-blue-900 h-20 flex p-4">
+    <header>
 
-        <!-- logo--> 
-        <div class="w-1/3">
-            <img src="./assets/svg/logo.svg" alt="">
-        </div>
-
-        <!-- secciones menu--> 
-        <div class="w-2/3 flex justify-end ">
-
-            <!-- icono hamburguesa para mobile--> 
-            <div class="w-10">
-                <img src="./assets/svg/menu.svg" alt="">
+        <nav class="flex flex-col">
+            <!-- logo--> 
+            <div class="h-24 flex justify-between px-8 bg-azul w-screen items-center">
+                <div class="h-12 w-2/5 flex">
+                    <img class="h-full" src="./assets/svg/logo.svg" alt="">
+                </div>
+    
+                <div class="h-12 w-3/5 flex justify-end items-center">
+                    <img class="h-2/3"  src="./assets/svg/menu.svg" alt="">
+                </div>
             </div>
 
-            <!-- paginas del menu-->
-            <ul class="hidden">
-                <li>Balance</li>
-                <li>Categorias</li>
-                <li>Reportes</li>
-            </ul>
-
-        </div>
-
+            <div class="h-40 px-8 pt-6 bg-amarilloClaro flex flex-col rounded-b-xl">
+                <a class="h-10" href="">Balance</a>
+                <a class="h-10" href="">Categoria</a>
+                <a class="h-10" href="">Reportes</a>
+            </div>
+        
+        </nav>
+        
     </header>
 
     <!-- secciones y componentes-->  
@@ -47,7 +59,7 @@
             <!-- contenedor de card balance y filtros --> 
             <div>
                 <!-- card balance --> 
-                <section id="balance-card" class="h-70 bg-amber-50 shadow-lg rounded-md p-4 my-8">
+                <section id="balance-card" class="h-70 shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
 
                     <!-- título --> 
                    <div class="mb-8">
@@ -75,11 +87,11 @@
                 </section>
    
                  <!-- card de filtros --> 
-                <section id="filtros-card" class="h-80 bg-amber-50 shadow-lg rounded-md p-4 my-8">
+                <section id="filtros-card" class="h-85 shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
    
                    <!-- título -->
-                   <div>
-                       <h2>Filtros</h2>
+                   <div class="flex justify-between mb-8">
+                       <h2 class="text-2xl font-bold">Filtros</h2>
                        <span>
                            <a href="">Ocultar filtros</a>
                        </span>
@@ -90,9 +102,9 @@
                    <form action="">
    
                        <!-- input desplegable por tipo -->
-                       <div>
-                           <label for="">Tipo</label>
-                           <select name="" id="">
+                       <div class="flex flex-col mb-4">
+                           <label class="mb-2" for="">Tipo</label>
+                           <select class="h-10 rounded-lg border-rojo border px-4" name="" id="">
                                <option value="todos">Todos</option>
                                <option value="gasto">Gasto</option>
                                <option value="ganancia">Ganancia</option>
@@ -100,9 +112,9 @@
                        </div>
    
                        <!-- input desplegable por categoria -->
-                       <div>
-                           <label for="">Categoria</label>
-                           <select name="" id="">
+                       <div class="flex flex-col mb-4">
+                           <label class="mb-2" for="">Categoria</label>
+                           <select class="h-10 rounded-lg border-rojo border px-4" name="" id="">
                                <option value="todos">Todos</option>
                                <option value="comida">Comida</option>
                                <option value="servicios">Servicios</option>
@@ -114,15 +126,15 @@
                        </div>
    
                        <!-- input tipo date -->
-                       <div>
-                           <label for="">Desde</label>
-                           <input type="date">
+                       <div class="flex flex-col mb-4">
+                           <label class="mb-2" for="">Desde</label>
+                           <input class="h-10 rounded-lg border-rojo border px-4" type="date">
                        </div>
    
                        <!--input para ordenar -->
-                       <div>
-                           <label for="">Ordenar por</label>
-                           <select name="" id="">
+                       <div class="flex flex-col mb-4" >
+                           <label class="mb-2" for="">Ordenar por</label>
+                           <select class="h-10 rounded-lg border-rojo border px-4" name="" id="">
                                <option value="mas-reciente">Más reciente</option>
                                <option value="menos-reciente">Menos reciente</option>
                                <option value="mayor-monto">Mayor Monto</option>
@@ -138,26 +150,30 @@
             </div>
               
             <!-- card donde se muestran las operaciones --> 
-            <section id="operaciones-card" class="h-80 bg-amber-50 shadow-lg rounded-md p-4 my-8">
+            <section id="operaciones-card" class="h-100 shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
 
                 <!-- titulo y boton agregar operaciones -->
-                <div>
-                    <h1>Operaciones</h1>
-                    <button>+ Nueva operación</button>
+                <div class="flex justify-between mb-8">
+                    <h2 class="text-2xl font-bold">Operaciones</h2>
+                    <button type='button' class='py-2.5 pl-6 pr-3.5 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 flex items-center hover:bg-rojo'>Nueva Operación ></button>
                 </div>
 
                 <!-- planel cuando no hay  operaciones -->
-                <div>
-                    <img src="" alt="">
-                    <h3>Sin operaciones</h3>
-                    <p>Cambia los filtros o agrega operaciones</p>
+                <div class="h-96 hidden">
+                    <div class="h-72 flex justify-center mb-8">
+                        <img class="h-full" src="./assets/svg/no-hay-operaciones.svg" alt="">
+                    </div>
+                    <div class="">
+                        <h3 class="text-lg font-bold text-center">Sin operaciones</h3>
+                        <p class="text-center" >Cambia los filtros o agrega operaciones</p>
+                    </div>   
                 </div>
 
                 <!-- panel cuando hay operaciones operaciones -->
-                <div>
+                <div class="">
 
                     <!-- titúlos tabla -->
-                    <div>
+                    <div class="hidden">
                         <span>Descripción</span>
                         <span>Categoria</span>
                         <span>Fecha</span>
@@ -167,20 +183,26 @@
 
                     <!-- fila de operación agregada -->
                     <div>
-                        <span>Descripción</span>
-                        <span>Categoria</span>
-                        <span>Fecha</span>
-                        <span>Monto</span>
-                        <div>
-                            <span>
-                                <a href="">agregar</a>
-                            </span>
-                            <span>
-                                <a href="">eliminar</a>
-                            </span>
-                            
-                            
+
+                        <div class="flex justify-between mb-2">
+                            <span class="text-lg font-bold">Descripción</span>
+                            <span class="border border-azul p-2 rounded-full text-xs">Categoria</span>
                         </div>
+                        
+                        <div class="flex justify-between" >
+                            <span class="hidden">Fecha</span>
+                            <span class="text-lg">Monto</span>
+
+                            <div>
+                                <span>
+                                    <a href="">agregar</a>
+                                </span>
+                                <span>
+                                    <a href="">eliminar</a>
+                                </span> 
+                            </div>
+                        </div>
+
                     </div>
                     
                 </div>
