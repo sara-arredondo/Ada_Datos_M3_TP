@@ -54,12 +54,12 @@
     <main class="flex flex-col p-8">
 
         <!-- componente de balance -->       
-        <section id="balance-componente" class="flex flex-col">
+        <section id="balance-componente" class="flex flex-col lg:flex-row">
 
             <!-- contenedor de card balance y filtros --> 
-            <div>
+            <div class="lg:w-1/3">
                 <!-- card balance --> 
-                <section id="balance-card" class="h-70 shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
+                <section id="balance-card" class="h-70  shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
 
                     <!-- título --> 
                    <div class="mb-8">
@@ -150,7 +150,7 @@
             </div>
               
             <!-- card donde se muestran las operaciones --> 
-            <section id="operaciones-card" class="h-100 shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
+            <section id="operaciones-card" class="h-100 lg:w-2/3 lg:ml-8 shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
 
                 <!-- titulo y boton agregar operaciones -->
                 <div class="flex justify-between mb-8">
@@ -160,7 +160,7 @@
 
                 <!-- planel cuando no hay operaciones -->
                 <div class="h-96 ">
-                    <div class="h-72 flex justify-center mb-8">
+                    <div class="h-72 lg:h-96 flex justify-center mb-8">
                         <img class="h-full" src="./assets/svg/no-hay-operaciones.svg" alt="">
                     </div>
                     <div class="">
