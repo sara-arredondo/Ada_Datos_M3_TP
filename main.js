@@ -24,12 +24,14 @@ const $balanceButton = document.querySelector("#balance-button");
 const $categoriaButton = document.querySelector("#categoria-button");
 const $reporteButton = document.querySelector("#reporte-button");
 const $agregarOperacionButton = document.querySelector("#agregrar-operacion-componente-button")
+const $ocultarFiltros = document.querySelector("#ocultar-filtros")
 
 // seleccion de componentes
 const $balanceComponente = document.querySelector("#balance-componente");
 const $agregarOperacionComponente = document.querySelector("#agregar-operacion-componente");
 const $categoriaComponente = document.querySelector("#categoria-componente");
 const $reporteComponente = document.querySelector("#reporte-componente");
+const $formFiltros = document.querySelector("#form-filtros")
 
 
 //Boton balance
@@ -41,6 +43,18 @@ $balanceButton.addEventListener("click", () => {
     $categoriaComponente.classList.add("hidden");
     $reporteComponente.classList.add("hidden");
 });
+
+$ocultarFiltros.addEventListener("click", (event) => {
+    event.preventDefault();
+    $formFiltros.classList.toggle("hidden");// Asegura que se esconda correctamente
+
+    if ($formFiltros.classList.contains("hidden")) {
+        $ocultarFiltros.textContent = "Mostrar filtros";
+    } else {
+        $ocultarFiltros.textContent = "Ocultar filtros";
+    }
+    
+})
 
 //Boton agregar operacion dentro del componente balance
 $agregarOperacionButton.addEventListener("click", () => {
@@ -74,4 +88,4 @@ $reporteButton.addEventListener("click", () => {
 })
 
 
-// ---------------------------------------------inicio codigo para intercambio de componentes  ---------------------------------------------------
+// ---------------------------------------------fin codigo para intercambio de componentes  ---------------------------------------------------
