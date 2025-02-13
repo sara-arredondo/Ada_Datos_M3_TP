@@ -32,18 +32,18 @@
             <!-- logo--> 
             <div class="h-24 flex justify-between px-8 bg-azul w-screen items-center">
                 <div class="h-12 w-2/5 flex">
-                    <img class="h-full" src="./assets/svg/logo.svg" alt="">
+                        <img class="h-full cursor-pointer" src="./assets/svg/logo.svg" alt="">
                 </div>
     
                 <div class="h-12 w-3/5 flex justify-end items-center">
-                    <img class="h-2/3"  src="./assets/svg/menu.svg" alt="">
+                    <img id="menu-icon-mobile" class="h-2/3 cursor-pointer"  src="./assets/svg/menu.svg" alt="">
                 </div>
             </div>
 
-            <div class="h-40 px-8 pt-6 bg-amarilloClaro flex flex-col rounded-b-xl">
-                <a class="h-10" href="">Balance</a>
-                <a class="h-10" href="">Categoria</a>
-                <a class="h-10" href="">Reportes</a>
+            <div id="container-menu-buttons" class="h-fit px-8 pt-6 bg-amarilloClaro flex flex-col rounded-b-xl hidden">
+                <button id="balance-button" class="mb-4 h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">Balance</button>
+                <button id="categoria-button" class="mb-4 h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">Categoria</button>
+                <button id="reporte-button" class="mb-4 h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">Reporte</button>
             </div>
         
         </nav>
@@ -54,7 +54,7 @@
     <main class="flex flex-col p-8">
 
         <!-- componente de balance -->       
-        <section id="balance-component" class="hidden">
+        <section id="balance-componente" class="flex flex-col">
 
             <!-- contenedor de card balance y filtros --> 
             <div>
@@ -155,7 +155,7 @@
                 <!-- titulo y boton agregar operaciones -->
                 <div class="flex justify-between mb-8">
                     <h2 class="text-2xl font-bold">Operaciones</h2>
-                    <button type='button' class='py-2.5 pl-6 pr-3.5 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 flex items-center hover:bg-rojo'>Nueva Operación ></button>
+                    <button id="agregrar-operacion-componente-button" type='button' class='py-2.5 pl-6 pr-3.5 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 flex items-center hover:bg-rojo'>Nueva Operación ></button>
                 </div>
 
                 <!-- planel cuando no hay operaciones -->
@@ -208,7 +208,7 @@
         </section>
 
         <!-- componente para agregar operación, va conectado al boton +operacion del panel de Balance-->   
-        <section id="agregar-operacion-componente" class="h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
+        <section id="agregar-operacion-componente" class="flex flex-col h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
 
                 <!-- titulo --> 
                 <div class="mb-8">
@@ -269,7 +269,7 @@
         </section>
 
         <!-- componente para agregar categorias -->  
-        <section id="categorias-componente" class="h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
+        <section id="categoria-componente" class="h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
 
             <!-- título card --> 
             <div class="mb-8">
@@ -299,8 +299,29 @@
 
         </section>
 
+        <!-- componente para editar categorias -->
+        <section class="h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
+
+            <!-- título card --> 
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold">Editar categoria</h1>
+            </div>
+
+            <!-- formulario para editar categoria -->  
+            <form action="" class="w-full pb-8">
+                <label class="mb-2 block" for="nombre">Nombre</label>
+                <div class="flex items-center space-x-4">
+                    <!-- Input de texto -->
+                    <input type="text" class="h-10 flex-1 rounded-lg border border-rojo px-4 w-2/3">
+                    <!-- Botón de submit -->
+                    <input type="submit" value="editar" class="h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">
+                    <input type="submit" value="cancelar" class="h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">
+                </div>
+            </form>
+        </section>
+
         <!-- componente de reportes  -->  
-        <section id="reportes-componente" id="operaciones-card" class="h-100 shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden">
+        <section id="reporte-componente" class="flex flex-col shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
 
             <!-- título del componente -->
             <div class="mb-8">
@@ -442,5 +463,6 @@
 
     </main>
     
+    <script src="./main.js"></script>
 </body>
 </html>
