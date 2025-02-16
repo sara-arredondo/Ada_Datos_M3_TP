@@ -28,19 +28,19 @@
     <!-- componente de menu-->  
     <header>
 
-        <nav class="flex flex-col lg:flex-row lg:bg-azul">
+        <nav class="flex flex-col lg:flex-row lg:bg-azul w-screen">
             <!-- logo--> 
             <div class="h-24 flex justify-between px-8 bg-azul w-screen items-center lg:mx-48">
-                <div class="h-12 w-2/5 flex">
+                <div class="h-12 w-32 lg:w-48 flex">
                         <img class="h-full cursor-pointer" src="./assets/svg/logo.svg" alt="">
                 </div>
     
                 <div class="h-12 w-3/5 flex justify-end items-center lg:hidden">
-                    <img id="menu-icon-mobile" class="h-2/3 cursor-pointer"  src="./assets/svg/menu.svg" alt="">
+                    <img id="menu-icon-mobile" class="h-2/3 cursor-pointer lg:hidden"  src="./assets/svg/menu.svg" alt="">
                 </div>
             </div>
 
-            <div id="container-menu-buttons" class="h-fit px-8 pt-6 bg-amarilloClaro flex flex-col rounded-b-xl lg:w-2/3 lg:flex-row lg:bg-transparent lg:justify-end lg:gap-4 lg:mx-48">
+            <div id="container-menu-buttons" class="h-fit px-8 pt-6 bg-amarilloClaro flex flex-col rounded-b-xl lg:w-2/3 lg:flex-row lg:bg-transparent lg:justify-end lg:gap-4 lg:mx-48 hidden lg:flex xl:flex 2xl:flex">
                 <button id="balance-button" class="mb-4 h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">Balance</button>
                 <button id="categoria-button" class="mb-4 h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">Categoria</button>
                 <button id="reporte-button" class="mb-4 h-10 py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-rojo">Reporte</button>
@@ -51,7 +51,7 @@
     </header>
 
     <!-- secciones y componentes-->  
-    <main class="flex flex-col p-8 lg:mx-48">
+    <main class="flex flex-col p-8 lg:mx-20 xl:mx-48">
 
         <!-- componente de balance -->       
         <section id="balance-componente" class="flex flex-col lg:flex-row">
