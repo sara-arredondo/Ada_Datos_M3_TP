@@ -215,7 +215,7 @@
                     <h1 class="text-3xl font-bold">Nueva Operación</h1>
                 </div>
                 
-                <!-- formulario para ingreso de operaciones -->
+                <!-- formulario para agregar operaciones -->
                 <form action="">
 
                     <!-- input para describir el tipo de operacion -->
@@ -265,6 +265,67 @@
                     </div>
 
                 </form>
+
+        </section>
+
+        <!-- seccion para editar operaciones -->
+        <section  class="flex flex-col h-fit shadow-lg bg-amarilloClaro rounded-lg p-8 my-8 overflow-hidden hidden">
+
+            <!-- titulo --> 
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold">Editar Operación</h1>
+            </div>
+
+            <!-- formulario para editar operaciones -->
+            <form action="">
+
+                <!-- input para describir el tipo de operacion -->
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2" for="">Descripción</label>
+                    <input  type="text" class="h-10 rounded-lg border-rojo border px-4">
+                </div>
+
+                <!-- input para ingresar el monto -->
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2" for="">Monto</label>
+                    <input type="number" class="h-10 rounded-lg border-rojo border px-4">
+                </div>
+
+                <!-- input para seleccionar el tipo de gasto -->
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2" for="">Tipo</label>
+                    <select name="" id="" class="h-10 rounded-lg border-rojo border px-4">
+                        <option value="Gasto">Gasto</option>
+                        <option value="Ganancia">Ganancia</option>
+                    </select>
+                </div>
+
+                <!-- input para seleccionar la categoria del gasto -->
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2" for="">Categoria</label>
+                    <select name="" id="" class="h-10 rounded-lg border-rojo border px-4">
+                        <option value="comida">Comida</option>
+                        <option value="servicios">Servicios</option>
+                        <option value="educacion">Educación</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="trabajo">Trabajo</option>
+                        <option value="zapatos">Zapatos</option>
+                    </select>
+                </div>
+
+                <!-- input para ingresar la fecha-->
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2" for="">Fecha</label>
+                    <input type="date" class="h-10 rounded-lg border-rojo border px-4">
+                </div>
+
+                <!-- input botones-->
+                <div class="flex mt-8 gap-4 justify-end">
+                    <input type="submit" value="enviar" class='py-2.5 px-6 text-sm bg-azul text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500  hover:bg-rojo'>
+                    <input type="submit" value="cancelar" class='py-2.5 px-6 text-sm bg-rojo text-white rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-azul'>
+                </div>
+
+            </form>
 
         </section>
 
