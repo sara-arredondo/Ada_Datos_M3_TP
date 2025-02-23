@@ -183,7 +183,6 @@ $inputFilterDate.addEventListener("change", (event) => {
     
     // Filtra las operaciones que sean de la fecha seleccionada o posteriores
     const operacionesFiltradasDate = funciones.datosTodasLasOperaciones.filter(operacion => {
-        // Convierte la fecha de la operación (asumiendo que está en formato DD-MM-YYYY) a un objeto dayjs
         const fechaOperacion = dayjs(operacion.date, "DD-MM-YYYY");
         console.log("Comparando operación:", operacion.date, "->", fechaOperacion.format("DD-MM-YYYY"));
 
@@ -194,6 +193,27 @@ $inputFilterDate.addEventListener("change", (event) => {
     // Actualiza el DOM con las operaciones filtradas
     pintarDatos(operacionesFiltradasDate);
 });
+
+$inputFilterSort.addEventListener("change", (event) => {
+
+    const sortOperaciones = event.target.value;
+    let nuevoArraySort= [...funciones.datosTodasLasOperaciones];
+
+    if(sortOperaciones === "mas-reciente") {
+        nuevoArraySort.sort((a,b) => {
+            const fechaA = dayjs(a.date, "DD-MM-YYYY");
+            const fechaB = dayjs(b.date, "DD-MM-YYYY");
+            return fechaB - fechaA;
+        });
+    } else if(sortOperaciones === "menos-reciente") {
+        nuevoArraySort.sort((a,b) => {
+            const fechaA = dayjs(a.date, "DD-MM-YYYY");
+            const fechaB = dayjs(b.date, "DD-MM-YYYY");
+            return fechaA - fechaB;
+        });
+    } 
+    pintarDatos(nuevoArraySort)
+})
 
 
 // ---------------------------------------------inicio codigo para pintar datos ---------------------------------------------------
