@@ -167,8 +167,8 @@ function actualizarBalance(operaciones) {
 
 $inputFilterType.addEventListener("input", (event) => {
 
-    if(event.target.value !== "todos") {
-        const operacionesFiltradasType = funciones.datosTodasLasOperaciones.filter(element => element.type !== event.target.value)
+    if(event.target.value !== "Todos") {
+        const operacionesFiltradasType = funciones.datosTodasLasOperaciones.filter(element => element.type === event.target.value)
         pintarDatos(operacionesFiltradasType)
     } else {
         pintarDatos(funciones.datosTodasLasOperaciones)
