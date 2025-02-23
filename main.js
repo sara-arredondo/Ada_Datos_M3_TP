@@ -213,10 +213,15 @@ $inputFilterSort.addEventListener("change", (event) => {
         });
     } else if(sortOperaciones === "mayor-monto") {
         nuevoArraySort.sort((a,b) =>  b.quantity - a.quantity)
+    } else if(sortOperaciones === "menor-monto") {
+        nuevoArraySort.sort((a,b) => a.quantity - b.quantity )
+    } else if(sortOperaciones === "ascendente") {
+        nuevoArraySort.sort((a,b) => a.name.localeCompare(b.name))
+    } else if(sortOperaciones === "descendente") {
+        nuevoArraySort.sort((a,b) => b.name.localeCompare(a.name))
     }
-
-    pintarDatos(nuevoArraySort)
-})
+    pintarDatos(nuevoArraySort);
+});
 
 
 // ---------------------------------------------inicio codigo para pintar datos ---------------------------------------------------
