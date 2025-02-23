@@ -211,7 +211,10 @@ $inputFilterSort.addEventListener("change", (event) => {
             const fechaB = dayjs(b.date, "DD-MM-YYYY");
             return fechaA - fechaB;
         });
-    } 
+    } else if(sortOperaciones === "mayor-monto") {
+        nuevoArraySort.sort((a,b) =>  b.quantity - a.quantity)
+    }
+
     pintarDatos(nuevoArraySort)
 })
 
