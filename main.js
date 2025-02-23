@@ -1,7 +1,51 @@
+import funciones from "./funciones.js";
+
+// ---------------------------------------------funciones selectoras de HTML  ---------------------------------------------------
+
+function $(element) {
+    return document.querySelector(element)
+}
+
+function $$(element) {
+    return document.querySelectorAll(element)
+}
+
+// --------------------------------------------- selectores de HTML  ---------------------------------------------------
+
+const $balanceButton = $("#balance-button");
+const $categoriaButton = $("#categoria-button");
+const $reporteButton = $("#reporte-button");
+const $agregarOperacionButton = $("#agregrar-operacion-componente-button")
+const $ocultarFiltros = $("#ocultar-filtros")
+
+// seleccion de componentes
+const $balanceComponente = $("#balance-componente");
+const $agregarOperacionComponente = $("#agregar-operacion-componente");
+const $categoriaComponente = $("#categoria-componente");
+const $reporteComponente = $("#reporte-componente");
+const $formFiltros = $("#form-filtros")
+
+const $menuIconMobile = $("#menu-icon-mobile");
+const $containerButtonsMenu = $("#container-menu-buttons");
+
+const $formCreate = $("#form-create")
+
+const $listOperaciones = $("#list-operaciones");
+
+const $formFilters = $("#form-filtros")
+const $contenedorFilterCategory =$("#contenedor-filter-categoria")
+
+const $inputFilterType = $("#filter-type")
+const $inputFilterCategory = $("#filter-category")
+const $inputFilterDate = $("#filter-date")
+const $inputFilterSort = $("#filter-sort")
+
+const $balanceGanancia = $("#balance-ganancia")
+const $balanceGasto = $("#balance-gasto")
+const $balanceTotal = $("#balance-total")
+
 // ---------------------------------------------inicio codigo para ocultar menu hamburguesa mobile y cambio de icono  ---------------------------------------------------
 
-const $menuIconMobile = document.querySelector("#menu-icon-mobile");
-const $containerButtonsMenu = document.querySelector("#container-menu-buttons");
 
 const menuIconSrc = "./assets/svg/menu.svg";  // Ícono de menú hamburguesa
 const closeIconSrc = "./assets/svg/menu-close.svg"; // Ícono de cerrar
@@ -18,22 +62,6 @@ $menuIconMobile.addEventListener("click", () => {
 
 // ---------------------------------------------inicio codigo para intercambio de componentes  ---------------------------------------------------
 
-
-// seleccion de botones
-const $balanceButton = document.querySelector("#balance-button");
-const $categoriaButton = document.querySelector("#categoria-button");
-const $reporteButton = document.querySelector("#reporte-button");
-const $agregarOperacionButton = document.querySelector("#agregrar-operacion-componente-button")
-const $ocultarFiltros = document.querySelector("#ocultar-filtros")
-
-// seleccion de componentes
-const $balanceComponente = document.querySelector("#balance-componente");
-const $agregarOperacionComponente = document.querySelector("#agregar-operacion-componente");
-const $categoriaComponente = document.querySelector("#categoria-componente");
-const $reporteComponente = document.querySelector("#reporte-componente");
-const $formFiltros = document.querySelector("#form-filtros")
-
-
 //Boton balance
 $balanceButton.addEventListener("click", () => {
     $balanceComponente.classList.remove("hidden");
@@ -44,19 +72,7 @@ $balanceButton.addEventListener("click", () => {
     $reporteComponente.classList.add("hidden");
 });
 
-$ocultarFiltros.addEventListener("click", (event) => {
-    event.preventDefault();
-    $formFiltros.classList.toggle("hidden");// Asegura que se esconda correctamente
-
-    if ($formFiltros.classList.contains("hidden")) {
-        $ocultarFiltros.textContent = "Mostrar filtros";
-    } else {
-        $ocultarFiltros.textContent = "Ocultar filtros";
-    }
-    
-})
-
-//Boton agregar operacion dentro del componente balance
+//Boton mostrar panel crear operacion dentro del componente balance
 $agregarOperacionButton.addEventListener("click", () => {
     $agregarOperacionComponente.classList.remove("hidden");
     $agregarOperacionComponente.classList.add("flex");
@@ -64,8 +80,8 @@ $agregarOperacionButton.addEventListener("click", () => {
     $balanceComponente.classList.add("hidden");
     $categoriaComponente.classList.add("hidden");
     $reporteComponente.classList.add("hidden");
-
 })
+
 
 //Boton categoria
 $categoriaButton.addEventListener("click", () => {
@@ -88,4 +104,119 @@ $reporteButton.addEventListener("click", () => {
 })
 
 
-// ---------------------------------------------fin codigo para intercambio de componentes  ---------------------------------------------------
+$ocultarFiltros.addEventListener("click", (event) => {
+    event.preventDefault();
+    $formFiltros.classList.toggle("hidden");// Asegura que se esconda correctamente
+
+    if ($formFiltros.classList.contains("hidden")) {
+        $ocultarFiltros.textContent = "Mostrar filtros";
+    } else {
+        $ocultarFiltros.textContent = "Ocultar filtros";
+    }
+    
+})
+
+
+// ---------------------------------------------inicio codigo para atrapar datos del formulario de crear ---------------------------------------------------
+
+
+$formCreate.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const nuevaOperacion = {
+        id: crypto.randomUUID(),
+        name: event.target[0].value,
+        quantity: Number(event.target[1].value),
+        type: event.target[2].value,
+        category: event.target[3].value,
+        date: dayjs(event.target[4].value, "YYYY-MM-DD").format("DD-MM-YYYY"),
+    }
+
+    funciones.agregarOperacion(nuevaOperacion);
+    pintarDatos(funciones.datosTodasLasOperaciones);
+
+    $agregarOperacionComponente.classList.add("hidden");
+    $balanceComponente.classList.remove("hidden");
+    $balanceComponente.classList.add("flex");
+    
+})
+
+function actualizarBalance(operaciones) {
+    let totalGanancia = 0;
+    let totalGasto = 0;
+
+    operaciones.forEach(operacion => {
+        if (operacion.type === "Ganancia") {
+            totalGanancia += operacion.quantity;
+        } else if (operacion.type === "Gasto") {
+            totalGasto += operacion.quantity;
+        }
+    });
+
+    let totalBalance = totalGanancia - totalGasto;
+
+    // Actualiza los elementos del DOM
+    $balanceGanancia.textContent = `+${totalGanancia}`;
+    $balanceGasto.textContent = `-${totalGasto}`;
+    $balanceTotal.textContent = totalBalance >= 0 ? `+${totalBalance}` : `${totalBalance}`;
+}
+
+
+// ---------------------------------------------inicio codigo para filtrar ---------------------------------------------------
+
+
+$inputFilterType.addEventListener("input", (event) => {
+
+    if(event.target.value !== "todos") {
+        const operacionesFiltradasType = funciones.datosTodasLasOperaciones.filter(element => element.type !== event.target.value)
+        pintarDatos(operacionesFiltradasType)
+    } else {
+        pintarDatos(funciones.datosTodasLasOperaciones)
+    }
+
+   
+})
+
+
+// ---------------------------------------------inicio codigo para pintar datos ---------------------------------------------------
+
+
+function pintarDatos(arrayOperaciones) {
+
+    $listOperaciones.innerHTML = "";
+
+    for (const operacion of arrayOperaciones) {
+
+        const colorMonto = operacion.type === "Ganancia" ? "text-green-500" : "text-red-500";
+        const signoMonto = operacion.type === "Ganancia" ? "+" : "-"
+
+        $listOperaciones.innerHTML +=
+        
+            `<div class="border-b border-azul pb-4 pt-4">           
+                <div class="flex flex-col gap-2 lg:flex-row lg:items-center">
+                              
+                    <div class="flex items-center gap-3 lg:w-2/5 justify-between">
+                        <p>${operacion.name}</p>
+                        <span class="border border-azul p-2 rounded-full text-xs">${operacion.category}</span>
+                    </div>
+                        
+                    <div class="flex items-center lg:w-3/5 md:justify-between sm:md:justify-between">
+                        <span class="hidden w-1/3 lg:flex justify-end ">${operacion.date}</span>
+                        <span class="w-1/3  font-bold flex lg:justify-end xl:justify-end md:justify-start ${colorMonto}">${signoMonto}${operacion.quantity}</span>
+                        <div class="w-1/3 flex justify-end space-x-2">
+                            <button class="text-blue-600 hover:underline">Editar</button>
+                            <button class="text-blue-600 hover:underline">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+    }
+
+    actualizarBalance(arrayOperaciones);
+}
+
+window.onload = () => {
+    funciones.datosTodasLasOperaciones = funciones.leerLocalStorage("operaciones");
+
+    pintarDatos(funciones.datosTodasLasOperaciones)
+}
