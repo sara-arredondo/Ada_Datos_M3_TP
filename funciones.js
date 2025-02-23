@@ -1,4 +1,5 @@
-// ---------------------------------------------inicio funcion para leer Local Storage ---------------------------------------------------
+// ---------------------------------------------inicio funcion para leer LS ---------------------------------------------------
+
 let datosTodasLasOperaciones = JSON.parse(localStorage.getItem("operaciones")) || []; 
 
 
@@ -18,6 +19,7 @@ function agregarOperacion(objetoNuevaOperacion) {
 }
 
 // ---------------------------------------------inicio funcion para exportar datos ---------------------------------------------------
+
 
 export default {
     leerLocalStorage,
