@@ -29,10 +29,10 @@ const $menuIconMobile = $("#menu-icon-mobile");
 const $containerButtonsMenu = $("#container-menu-buttons");
 
 const $formCreate = $("#form-create")
+const $buttonCancelarOperacion = $("#button-cancelar-operacion")
 
 const $listOperaciones = $("#list-operaciones");
 
-const $formFilters = $("#form-filtros")
 const $contenedorFilterCategory =$("#contenedor-filter-categoria")
 
 const $inputFilterType = $("#filter-type")
@@ -82,6 +82,17 @@ $agregarOperacionButton.addEventListener("click", () => {
     $reporteComponente.classList.add("hidden");
 })
 
+//Boton para cancelar la creacion de una nueva operacion redirge a panel balance
+$buttonCancelarOperacion.addEventListener("click", (event) => {
+    preventDefault(event);
+
+    $agregarOperacionComponente.classList.add("hidden");
+
+    $balanceComponente.classList.remove("hidden");
+    $balanceComponente.classList.add("flex");
+
+
+});
 
 //Boton categoria
 $categoriaButton.addEventListener("click", () => {
